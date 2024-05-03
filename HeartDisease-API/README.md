@@ -4,3 +4,5 @@ Pre install in terminal:
 
 To run:
 flask run --debug or python app.py
+
+apk
