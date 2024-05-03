@@ -1,0 +1,41 @@
+1.age - age in years (number)
+2.sex - 0 - female
+  sex - 1 - male
+
+3.cp - 0- typical angina
+  cp - 1- atypical angina
+  cp - 2- non-anginal pain /angular
+  cp - 3- asymptomatic
+
+4.trestbps - 130-139
+
+5.chol - 0-200+
+
+6.fbs- 0-120
+  fbs - 1-120+
+
+7.restecg - 0- normal
+  restecg - 1- having ST-T wave abnormality
+  restecg - 2- showing probable or definite left ventricular hypertrophy
+
+8.thalach - max heart rate (number)
+
+9.exang - 0- no
+  exang - 1- yes
+
+10.oldpeak - ST depression induced by exercise relative to rest - (number)
+  oldpeak - ST 0-6
+
+11.slope - 0- upsloping
+  slope - 1- flat
+  slope - 2- downsloping
+
+-----------------------------
+
+12.ca - number of major vessels (0-3) colored by flourosopy (number) (not used)
+13.thal - 0- normal (not used)
+  thal - 1- fixed defect (not used)
+  thal - 2- reversable defect (not used)
+
+14.target - 0- no heart disease
+  target - 1- heart disease

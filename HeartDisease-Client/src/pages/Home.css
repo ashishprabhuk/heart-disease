@@ -1,0 +1,36 @@
+@media only screen and (max-width: 600px) {
+  .para {
+    display: none;
+  }
+  .note {
+    font-size: 18px;
+    color: #B6EADA;
+    text-align: center;
+    background-color: #03001C;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 5px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .note {
+    font-size: 18px;
+    color: #B6EADA;
+    text-align: center;
+    background-color: #03001C;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 5px;
+  }
+}
+
+.note {
+  font-size: 18px;
+  color: #B6EADA;
+  text-align: center;
+  background-color: #03001C;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 35px 20px;
+}
