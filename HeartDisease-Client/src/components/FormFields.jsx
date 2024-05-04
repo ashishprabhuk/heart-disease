@@ -51,7 +51,8 @@ const FormFields = () => {
 
       obj = JSON.parse(body);
       console.log("The new obj is : ", obj);
-      const response = await axios.post("http://localhost:5000/api", body, {
+      // const response = await axios.post("http://localhost:5000/api", body, {
+      const response = await axios.post("https://heart-disease-3.onrender.com/api", body, {
         headers: {
           "Content-Type": "application/json",
         },
