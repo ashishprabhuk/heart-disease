@@ -46,21 +46,23 @@ const FormFields = () => {
       .required("*Cholesterol is required")
       .positive("must be a positive number")
       .min(125, "Cholesterol must be at least 125")
-      .max(564, "Cholesterol must be at most 564"),
+      .max(564, "Cholesterol must be at most 564")
+      .moreThan(0, "Cholesterol must be greater than 0"),
     fbs: Yup.number().required("*Fasting Blood Sugar is required"),
     restecg: Yup.number().required("*Rest ECG is required"),
     thalach: Yup.number()
       .required("*Max Heart Rate is required")
       .positive("must be a positive number")
       .min(71, "Max Heart Rate must be at least 71")
-      .max(220, "Max Heart Rate must be at most 220"),
+      .max(220, "Max Heart Rate must be at most 220")
+      .moreThan(0, "Thalach must be greater than 0"),
     exang: Yup.number().required("Exercise Induced Angina is required"),
     oldpeak: Yup.number()
       .required("*Oldpeak is required")
-      .min(0, "ST Depression must be at least 0")
+      .min(-0.5, "ST Depression must be at least 0")
       .max(6, "ST Depression must be at most 6")
       .typeError("ST Depression must be a number")
-      .lessThan(6, "ST Depression must be less than 6"),
+      .lessThan(7, "ST Depression must be less than 7"),
     slope: Yup.number().required("*Slope is required"),
   });
 
@@ -79,11 +81,11 @@ const FormFields = () => {
           values[key] = parseInt(values[key]);
         }
       });
-      console.log(values.sex);
       const body = JSON.stringify(values);
       console.log("The body is : ", body);
       obj = JSON.parse(body);
       console.log("The new obj is : ", obj);
+      setFormData(obj);
       // const response = await axios.post("http://localhost:5000/api", body, {
       const response = await toast.promise(
         axios.post("https://heart-disease-3.onrender.com/api", body, {
@@ -249,7 +251,7 @@ const FormFields = () => {
                 <Field
                   type="number"
                   name="trestbps"
-                  placeholder="Enter The Resting Blood Pressure (130 - 140)"
+                  placeholder="Enter The Resting Blood Pressure"
                   style={{ backgroundColor: "#DDDDDD" }}
                 />
                 <ErrorMessage
@@ -270,7 +272,7 @@ const FormFields = () => {
                 <Field
                   type="number"
                   name="chol"
-                  placeholder="Enter Your Cholesterol level (0 - 240)"
+                  placeholder="Enter Your Cholesterol level"
                   style={{ backgroundColor: "#DDDDDD" }}
                 />
                 <ErrorMessage
@@ -345,7 +347,7 @@ const FormFields = () => {
                 <Field
                   type="number"
                   name="thalach"
-                  placeholder="Select The Max Heart Rate"
+                  placeholder="Enter Your Max Heart Rate"
                   style={{ backgroundColor: "#DDDDDD" }}
                 />
                 <ErrorMessage
