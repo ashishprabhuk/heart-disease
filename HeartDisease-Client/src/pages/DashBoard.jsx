@@ -85,12 +85,6 @@ const DashBoard = () => {
     Z`;
   };
 
-  const TriangleBar = (props) => {
-    const { fill, x, y, width, height } = props;
-
-    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-  };
-
   return (
     <>
       <div style={{ color: "white", textAlign: "center" }}>
@@ -160,23 +154,6 @@ const DashBoard = () => {
       {/* Charts */}
       <h2 className="chart-head">Charts</h2>
       <div className="charts-container">
-        <div className="chart-item">
-          {/* LineChart */}
-          <ResponsiveContainer height={250} width="100%">
-            <LineChart data={inputData} margin={{ right: 25, top: 10 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Line
-                type="monotone"
-                dataKey="value"
-                stroke={color}
-                activeDot={{ r: 8 }}
-              />
-              <Tooltip />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
         {/* AreaChart */}
         <div className="chart-item">
           <ResponsiveContainer height={250} width="100%">
@@ -219,10 +196,23 @@ const DashBoard = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
+        {/* Scatter Chart */}
+        <div className="chart-item">
+          <ResponsiveContainer height={250} width="100%">
+            <ScatterChart>
+              <CartesianGrid />
+              <XAxis type="category" dataKey="name" name="Name" />
+              <YAxis type="number" dataKey="value" name="Value" />
+              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+              <Legend />
+              <Scatter name="Data" data={zeroOneData} fill={color} line />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
 
         {/* Pie Chart */}
         <div className="chart-item">
-          <ResponsiveContainer width="100%" aspect={4 / 3}>
+          <ResponsiveContainer height={250} width="100%">
             <PieChart>
               {/* Pie Chart for inputData */}
               <Pie
@@ -285,19 +275,6 @@ const DashBoard = () => {
               />
             </RadarChart>
           </ResponsiveContainer>
-        </div>
-        {/* Scatter Chart */}
-        <div className="chart-item">
-        <ResponsiveContainer height={250} width="100%">
-          <ScatterChart>
-            <CartesianGrid />
-            <XAxis type="category" dataKey="name" name="Name" />
-            <YAxis type="number" dataKey="value" name="Value" />
-            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-            <Legend />
-            <Scatter name="Data" data={zeroOneData} fill={color} line />
-          </ScatterChart>
-        </ResponsiveContainer>
         </div>
       </div>
     </>
